@@ -4,6 +4,8 @@ Swookiee application archetype(s)
 
 ## Swookie Application Archetype
 
+[![Build Status](https://travis-ci.org/swookiee/com.swookiee.archetype.png?branch=develop)](https://travis-ci.org/swookiee/com.swookiee.archetype)
+
 The archetype is built from a simple sample application, using maven's ability to create an archetype from a given application.
 To build, execute the shell script in com.swookie.swookie-application:
 
