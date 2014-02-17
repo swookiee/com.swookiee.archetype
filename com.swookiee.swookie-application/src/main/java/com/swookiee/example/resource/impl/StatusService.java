@@ -1,9 +1,9 @@
-package com.intuit.data.runtime.example.resource.impl;
+package com.swookiee.example.resource.impl;
 
 import org.osgi.service.component.annotations.Component;
 
-import com.intuit.data.runtime.example.resource.Status;
-import com.intuit.data.runtime.example.resource.transfer.StatusObject;
+import com.swookiee.example.resource.Status;
+import com.swookiee.example.resource.transfer.StatusObject;
 
 @Component
 public class StatusService implements Status {

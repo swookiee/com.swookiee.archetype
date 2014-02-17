@@ -1,4 +1,4 @@
-package com.intuit.data.runtime.example.resource.transfer;
+package com.swookiee.example.resource.transfer;
 
 public class StatusObject {
 
