@@ -31,7 +31,7 @@
         <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>org.osgi.compendium</artifactId>
-            <version>4.3.1</version>
+            <version>5.0.0</version>
             <scope>provided</scope>
         </dependency>
 
@@ -45,33 +45,27 @@
 
         <!-- REST -->
         <dependency>
-            <groupId>com.eclipsesource</groupId>
-            <artifactId>osgi-jaxrs-connector</artifactId>
-            <version>3.2.1</version>
-            <scope>provided</scope>
+            <groupId>com.eclipsesource.jaxrs</groupId>
+            <artifactId>publisher</artifactId>
+            <version>3.3</version>
         </dependency>
 
-        <!-- Test dependencies -->
+        <!-- Some dependencies which will help, remember, a lot of it will 
+            be provided via swookiee -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
-            <version>1.7.5</version>
+            <version>1.7.7</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
-            <version>14.0.1</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.ops4j</groupId>
-            <artifactId>peaberry</artifactId>
-            <version>1.3</version>
+            <version>16.0.1</version>
             <scope>provided</scope>
         </dependency>
 
-        <!-- Test dependencies -->
+        <!-- Test dependencies, some ppl. do that -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
@@ -103,6 +97,7 @@
                     <target>1.7</target>
                 </configuration>
             </plugin>
+
             <!-- Felix plugin to generate MAINIFEST.MF -->
             <plugin>
                 <groupId>org.apache.felix</groupId>
@@ -127,7 +122,15 @@
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-scr-plugin</artifactId>
-                <version>1.15.0</version>
+                <version>1.16.0</version>
+                <!-- Workaround in case you want to go with JDK 8 
+                <dependencies>
+                    <dependency>
+                        <groupId>org.ow2.asm</groupId>
+                        <artifactId>asm-all</artifactId>
+                        <version>5.0.2</version>
+                    </dependency>
+                </dependencies>-->
                 <executions>
                     <execution>
                         <id>generate-scr-scrdescriptor</id>
@@ -150,22 +153,16 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.apache.sling</groupId>
-                        <artifactId>maven-sling-plugin</artifactId>
-                        <version>2.1.0</version>
+                        <groupId>com.swookiee.tools</groupId>
+                        <artifactId>com.swookiee.tools.deployplugin</artifactId>
+                        <version>1.0.0-SNAPSHOT</version>
                         <executions>
                             <execution>
                                 <id>install-bundle</id>
                                 <goals>
-                                    <goal>install</goal>
+                                    <goal>bundle-deploy</goal>
                                 </goals>
-                                <configuration>
-                                    <bundleStartLevel>4</bundleStartLevel>
-                                    <bundleStart>true</bundleStart>
-                                    <refreshPackages>false</refreshPackages>
-                                    <user>admin</user>
-                                    <password>admin123</password>
-                                </configuration>
+                                <phase>install</phase>
                             </execution>
                         </executions>
                     </plugin>
